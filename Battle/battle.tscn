@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://qwv6wsrsd8i1"]
+
+[ext_resource type="Texture2D" uid="uid://ddlgjtsn4u3f3" path="res://notslaythespirebackground.jpg" id="1_ac2hh"]
+[ext_resource type="Texture2D" uid="uid://eltid4gymwkc" path="res://dialoguebox1.png" id="2_ksnli"]
+
+[node name="Control" type="Control" unique_id=1206029571]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slaythespirebackground" type="Sprite2D" parent="." unique_id=1662316570]
+position = Vector2(576, 270.50003)
+scale = Vector2(1.6066946, 1.4586668)
+texture = ExtResource("1_ac2hh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=990097352]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 11.200001
+anchor_right = 28.800001
+anchor_bottom = 16.2
+offset_top = -3.0517578e-05
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=440799047]
+visible = false
+layout_mode = 0
+offset_left = -368.0
+offset_top = 712.0
+offset_right = 784.0
+offset_bottom = 920.0
+texture = ExtResource("2_ksnli")
+
+[node name="Dialoguebox1" type="Sprite2D" parent="." unique_id=2082334676]
+position = Vector2(575.1429, 532.1875)
+scale = Vector2(9.0133915, 8.299108)
+texture = ExtResource("2_ksnli")
