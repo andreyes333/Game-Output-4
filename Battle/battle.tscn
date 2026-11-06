@@ -1,38 +1,92 @@
 [gd_scene format=3 uid="uid://qwv6wsrsd8i1"]
 
-[ext_resource type="Texture2D" uid="uid://ddlgjtsn4u3f3" path="res://notslaythespirebackground.jpg" id="1_ac2hh"]
-[ext_resource type="Texture2D" uid="uid://eltid4gymwkc" path="res://dialoguebox1.png" id="2_ksnli"]
+[ext_resource type="Theme" uid="uid://bc4sd2mw2y0t4" path="res://menu_theme_default.tres" id="1_5pv0p"]
+[ext_resource type="PackedScene" uid="uid://b2s5pd8gyp2x7" path="res://Battle/menu.tscn" id="3_o5tja"]
+[ext_resource type="Theme" uid="uid://ccvqb1g3n4kkj" path="res://font_size.tres" id="5_do635"]
 
-[node name="Control" type="Control" unique_id=1206029571]
+[node name="Battle" type="Control" unique_id=1206029571]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5pv0p")
 
-[node name="Slaythespirebackground" type="Sprite2D" parent="." unique_id=1662316570]
-position = Vector2(576, 270.50003)
-scale = Vector2(1.6066946, 1.4586668)
-texture = ExtResource("1_ac2hh")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=990097352]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1275484505]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 11.200001
-anchor_right = 28.800001
-anchor_bottom = 16.2
-offset_top = -3.0517578e-05
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.21, 0.21, 0.21, 1)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=440799047]
-visible = false
-layout_mode = 0
-offset_left = -368.0
-offset_top = 712.0
-offset_right = 784.0
-offset_bottom = 920.0
-texture = ExtResource("2_ksnli")
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1036585283]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -48.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 0
 
-[node name="Dialoguebox1" type="Sprite2D" parent="." unique_id=2082334676]
-position = Vector2(575.1429, 532.1875)
-scale = Vector2(9.0133915, 8.299108)
-texture = ExtResource("2_ksnli")
+[node name="Menu" parent="HBoxContainer" unique_id=497923819 instance=ExtResource("3_o5tja")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.7
+
+[node name="Menu2" parent="HBoxContainer" unique_id=9369879 instance=ExtResource("3_o5tja")]
+layout_mode = 2
+
+[node name="Options" parent="." unique_id=1566229321 instance=ExtResource("3_o5tja")]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -51.0
+offset_right = -20.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=290891522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="Button" type="Button" parent="Options/VBoxContainer" unique_id=1983865486]
+layout_mode = 2
+theme = ExtResource("5_do635")
+text = "Attack"
+
+[node name="Button2" type="Button" parent="Options/VBoxContainer" unique_id=106878638]
+layout_mode = 2
+theme = ExtResource("5_do635")
+text = "Magic"
+
+[node name="Button3" type="Button" parent="Options/VBoxContainer" unique_id=1149440453]
+layout_mode = 2
+theme = ExtResource("5_do635")
+text = "Defend"
+
+[node name="Button4" type="Button" parent="Options/VBoxContainer" unique_id=1594010268]
+layout_mode = 2
+theme = ExtResource("5_do635")
+text = "Item"

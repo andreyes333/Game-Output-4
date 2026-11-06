@@ -1,0 +1,20 @@
+[gd_resource type="Theme" format=3 uid="uid://ccvqb1g3n4kkj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqkie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hpewj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vuixo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_016u2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsb18"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 6
+Button/styles/disabled = SubResource("StyleBoxFlat_iqkie")
+Button/styles/focus = SubResource("StyleBoxFlat_hpewj")
+Button/styles/hover = SubResource("StyleBoxFlat_vuixo")
+Button/styles/normal = SubResource("StyleBoxFlat_016u2")
+Button/styles/pressed = SubResource("StyleBoxFlat_nsb18")
