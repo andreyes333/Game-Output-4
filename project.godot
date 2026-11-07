@@ -13,12 +13,17 @@ config_version=5
 config/name="Game Output 4"
 run/main_scene="uid://qwv6wsrsd8i1"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+Debug="*uid://y7dor6pwvlhm"
 
 [display]
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/borderless=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"

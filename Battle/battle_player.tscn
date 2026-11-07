@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bqss7i5d6xk56"]
+
+[ext_resource type="Texture2D" uid="uid://bgk0bxi152850" path="res://Assets/TemporaryEntitySprite.png" id="1_2pf0b"]
+
+[node name="BattlePlayer" type="TextureButton" unique_id=864587999]
+offset_right = 33.0
+offset_bottom = 32.0
+texture_normal = ExtResource("1_2pf0b")
