@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cx50n8ja6lx06"]
+
+[sub_resource type="GDScript" id="GDScript_42tav"]
+script/source = "class_name EnemyData extends Resource
+
+@export var name : String = \"Monster\"
+@export var texture : Texture2D
+@export var health : int = 10 
+@export var damage : int = 2
+"
+
+[resource]
+script = SubResource("GDScript_42tav")
+metadata/_custom_type_script = "uid://b36spam8cc33h"

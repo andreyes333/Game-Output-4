@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bc66h2lduodkn"]
+
+[ext_resource type="Texture2D" uid="uid://c6wlioynsoteb" path="res://Assets/enemies/Slime.png" id="2_6w4tk"]
+
+[sub_resource type="GDScript" id="GDScript_42tav"]
+script/source = "class_name EnemyData extends Resource
+
+@export var name : String = \"Monster\"
+@export var texture : Texture2D
+@export var health : int = 10 
+@export var damage : int = 2
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w4tk"]
+atlas = ExtResource("2_6w4tk")
+region = Rect2(0, 32.183025, 16.520576, 31.816975)
+
+[resource]
+script = SubResource("GDScript_42tav")
+name = "Slime"
+texture = SubResource("AtlasTexture_6w4tk")
+health = 20
+metadata/_custom_type_script = "uid://b36spam8cc33h"

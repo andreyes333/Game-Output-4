@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb8sm8v1k4hjt"
-path="res://.godot/imported/Cursor.png-cae8fd761fc8e5a370200d6d7518f8e9.ctex"
+uid="uid://65gcrtqmb10c"
+path="res://.godot/imported/Gladiator.png-c91fa9444cc8c7835e144496c6694cc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cursor.png"
-dest_files=["res://.godot/imported/Cursor.png-cae8fd761fc8e5a370200d6d7518f8e9.ctex"]
+source_file="res://Assets/players/Gladiator.png"
+dest_files=["res://.godot/imported/Gladiator.png-c91fa9444cc8c7835e144496c6694cc4.ctex"]
 
 [params]
 

@@ -1,9 +1,62 @@
 [gd_scene format=3 uid="uid://0a6nmud181a5"]
 
-[ext_resource type="Texture2D" uid="uid://bgk0bxi152850" path="res://Assets/TemporaryEntitySprite.png" id="1_j463f"]
+[ext_resource type="Texture2D" uid="uid://c6wlioynsoteb" path="res://Assets/enemies/Slime.png" id="1_xf5mp"]
+[ext_resource type="Script" uid="uid://dxrq8qrgs61v7" path="res://Scripts/enemy_target.gd" id="2_xf5mp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcrfk"]
+atlas = ExtResource("1_xf5mp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_xf5mp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ge164"]
+resource_name = "highlight"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.31061712, 0.31061712, 0.31061706, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1nt1"]
+_data = {
+&"RESET": SubResource("Animation_xf5mp"),
+&"highlight": SubResource("Animation_ge164")
+}
 
 [node name="BattleEnemy" type="TextureButton" unique_id=938350905]
-self_modulate = Color(0.73333335, 0, 0, 1)
 offset_right = 32.0
 offset_bottom = 32.0
-texture_normal = ExtResource("1_j463f")
+texture_normal = SubResource("AtlasTexture_rcrfk")
+stretch_mode = 0
+script = ExtResource("2_xf5mp")
+
+[node name="Hit" type="Timer" parent="." unique_id=1160252699]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2011400125]
+libraries/ = SubResource("AnimationLibrary_s1nt1")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="timeout" from="Hit" to="." method="_on_hit_timeout"]

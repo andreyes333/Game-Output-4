@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl31tfo5ln4k4"
-path="res://.godot/imported/DemoUiBackgroundNineRect.png-275793612ce7b8808fbbb10bd9f79234.ctex"
+uid="uid://c6wlioynsoteb"
+path="res://.godot/imported/Slime.png-b6ec9471d5d1e1eb9af5b216776b69ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DemoUiBackgroundNineRect.png"
-dest_files=["res://.godot/imported/DemoUiBackgroundNineRect.png-275793612ce7b8808fbbb10bd9f79234.ctex"]
+source_file="res://Assets/enemies/Slime.png"
+dest_files=["res://.godot/imported/Slime.png-b6ec9471d5d1e1eb9af5b216776b69ee.ctex"]
 
 [params]
 

@@ -10,8 +10,19 @@ func _ready() -> void:
 		button.focus_exited.connect(_on_button_focus_exited.bind(button))
 		button.focus_entered.connect(_on_button_focused.bind(button))
 		button.pressed.connect(_on_button_pressed.bind(button))
+		button.tree_exiting.connect(_on_button_removed.bind(button))
 	button_enable_focus(false)
 
+func _on_button_removed(button: BaseButton) -> void:
+	if not button.has_focus():
+		return
+	var removed_index: int = button.get_index()
+	await get_tree().process_frame
+	var buttons: Array = get_buttons()
+	if buttons.is_empty():
+		return
+	index = clampi(removed_index, 0, buttons.size() - 1)
+	button_focus(index)
 
 func get_buttons() -> Array:
 	return get_children()
@@ -34,10 +45,11 @@ func button_focus(n: int = index) -> void:
 	button.grab_focus()
 
 func _on_button_focus_exited(button: BaseButton) -> void:
-		await get_tree().process_frame
-		if not get_viewport().gui_get_focus_owner() in get_buttons():
-			button_enable_focus(false)
-		#await get_tree().process_frame
+	await get_tree().process_frame
+	if not is_instance_valid(button) or button.is_queued_for_deletion() or not button.is_inside_tree():
+		return
+	if not get_viewport().gui_get_focus_owner() in get_buttons():
+		button_enable_focus(false)
 
 func _on_button_focused(button: BaseButton) -> void:
 	index = button.get_index()
