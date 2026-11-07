@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bqss7i5d6xk56" path="res://Battle/battle_player.tscn" id="4_ploow"]
 [ext_resource type="PackedScene" uid="uid://0a6nmud181a5" path="res://Battle/battle_enemy.tscn" id="5_0lqow"]
 [ext_resource type="Theme" uid="uid://ccvqb1g3n4kkj" path="res://Assets/font_size.tres" id="5_do635"]
+[ext_resource type="PackedScene" uid="uid://78ekns46m20e" path="res://Battle/menu_cursor.tscn" id="8_bjo3u"]
+[ext_resource type="PackedScene" uid="uid://d3h6gh2jq840w" path="res://Battle/health.tscn" id="8_ihngk"]
 
 [node name="Battle" type="Control" unique_id=1206029571]
 layout_mode = 3
@@ -27,79 +29,44 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14117648, 0.30588236, 0.101960786, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1036585283]
-custom_minimum_size = Vector2(200, 48)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -48.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/separation = 0
-
-[node name="Menu" parent="HBoxContainer" unique_id=497923819 instance=ExtResource("3_o5tja")]
-layout_mode = 2
-size_flags_stretch_ratio = 0.7
-
-[node name="Menu2" parent="HBoxContainer" unique_id=9369879 instance=ExtResource("3_o5tja")]
-layout_mode = 2
-
-[node name="Options" parent="." unique_id=1566229321 instance=ExtResource("3_o5tja")]
-custom_minimum_size = Vector2(48, 48)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -69.0
-offset_top = -48.0
-offset_right = -21.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="PlayerOptions" type="VBoxContainer" parent="Options" unique_id=290891522]
+[node name="Enemies" type="Control" parent="." unique_id=438403486]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 4.0
-offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 2
 script = ExtResource("4_0lqow")
 
-[node name="Button" type="Button" parent="Options/PlayerOptions" unique_id=1983865486]
-layout_mode = 2
-theme = ExtResource("5_do635")
-text = "Attack"
+[node name="BattleEnemy" parent="Enemies" unique_id=938350905 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 15.0
+offset_right = 186.0
+offset_bottom = 47.0
 
-[node name="Button2" type="Button" parent="Options/PlayerOptions" unique_id=106878638]
-layout_mode = 2
-theme = ExtResource("5_do635")
-text = "Magic"
+[node name="BattleEnemy2" parent="Enemies" unique_id=2016283626 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 38.0
+offset_right = 235.0
+offset_bottom = 70.0
 
-[node name="Button3" type="Button" parent="Options/PlayerOptions" unique_id=1149440453]
-layout_mode = 2
-theme = ExtResource("5_do635")
-text = "Defend"
-
-[node name="Button4" type="Button" parent="Options/PlayerOptions" unique_id=1594010268]
-layout_mode = 2
-theme = ExtResource("5_do635")
-text = "Item"
+[node name="BattleEnemy3" parent="Enemies" unique_id=2075560097 instance=ExtResource("5_0lqow")]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 61.0
+offset_right = 287.0
+offset_bottom = 93.0
 
 [node name="PlayerCharacters" type="Control" parent="." unique_id=1121092959]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_0lqow")
 
 [node name="BattlePlayer" parent="PlayerCharacters" unique_id=864587999 instance=ExtResource("4_ploow")]
 layout_mode = 0
@@ -122,28 +89,175 @@ offset_top = 95.0
 offset_right = 183.0
 offset_bottom = 127.0
 
-[node name="Enemies" type="Control" parent="." unique_id=438403486]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GUIMargin" type="MarginContainer" parent="." unique_id=1142262946]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_do635")
 
-[node name="BattleEnemy" parent="Enemies" unique_id=938350905 instance=ExtResource("5_0lqow")]
-layout_mode = 0
-offset_left = 154.0
-offset_top = 15.0
-offset_right = 186.0
-offset_bottom = 47.0
+[node name="BottomMenu" type="HBoxContainer" parent="GUIMargin" unique_id=1036585283]
+custom_minimum_size = Vector2(200, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
 
-[node name="BattleEnemy2" parent="Enemies" unique_id=2016283626 instance=ExtResource("5_0lqow")]
-layout_mode = 0
-offset_left = 203.0
-offset_top = 38.0
-offset_right = 235.0
-offset_bottom = 70.0
+[node name="Enemies" parent="GUIMargin/BottomMenu" unique_id=497923819 instance=ExtResource("3_o5tja")]
+layout_mode = 2
+size_flags_stretch_ratio = 0.7
 
-[node name="BattleEnemy3" parent="Enemies" unique_id=2075560097 instance=ExtResource("5_0lqow")]
+[node name="MarginContainer" type="MarginContainer" parent="GUIMargin/BottomMenu/Enemies" unique_id=1715387329]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_do635")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUIMargin/BottomMenu/Enemies/MarginContainer" unique_id=229097671]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_do635")
+
+[node name="Label" type="Label" parent="GUIMargin/BottomMenu/Enemies/MarginContainer/VBoxContainer" unique_id=526087090]
+layout_mode = 2
+theme = ExtResource("5_do635")
+text = "Enemy"
+
+[node name="Label2" type="Label" parent="GUIMargin/BottomMenu/Enemies/MarginContainer/VBoxContainer" unique_id=2093326299]
+layout_mode = 2
+text = "Enemy"
+
+[node name="Label3" type="Label" parent="GUIMargin/BottomMenu/Enemies/MarginContainer/VBoxContainer" unique_id=400193274]
+layout_mode = 2
+text = "Enemy"
+
+[node name="Players" parent="GUIMargin/BottomMenu" unique_id=9369879 instance=ExtResource("3_o5tja")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GUIMargin/BottomMenu/Players" unique_id=1767834659]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_do635")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUIMargin/BottomMenu/Players/MarginContainer" unique_id=493212718]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_do635")
+
+[node name="PlayerInfoBar" type="HBoxContainer" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer" unique_id=779391765]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=1309882859]
+layout_mode = 2
+text = "Player"
+
+[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=1791203935]
+layout_mode = 2
+text = "MP: 999"
+
+[node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=383513330 instance=ExtResource("8_ihngk")]
+layout_mode = 2
+
+[node name="PlayerInfoBar2" type="HBoxContainer" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer" unique_id=920540889]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=521062165]
+layout_mode = 2
+text = "Player"
+
+[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=1029206700]
+layout_mode = 2
+text = "MP: 999"
+
+[node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=194928402 instance=ExtResource("8_ihngk")]
+layout_mode = 2
+
+[node name="PlayerInfoBar3" type="HBoxContainer" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer" unique_id=1779214590]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=850477365]
+layout_mode = 2
+text = "Player"
+
+[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=542875002]
+layout_mode = 2
+text = "MP: 999"
+
+[node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=210034506 instance=ExtResource("8_ihngk")]
+layout_mode = 2
+
+[node name="Options" parent="." unique_id=1566229321 instance=ExtResource("3_o5tja")]
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 0
-offset_left = 254.0
-offset_top = 58.0
-offset_right = 286.0
-offset_bottom = 90.0
+offset_left = 91.0
+offset_top = 126.0
+offset_right = 139.0
+offset_bottom = 174.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="PlayerOptions" type="VBoxContainer" parent="Options" unique_id=290891522]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 4.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+script = ExtResource("4_0lqow")
+
+[node name="Button" type="Button" parent="Options/PlayerOptions" unique_id=1983865486]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Button4")
+focus_neighbor_right = NodePath(".")
+theme = ExtResource("5_do635")
+text = " Attack "
+
+[node name="Button2" type="Button" parent="Options/PlayerOptions" unique_id=106878638]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme = ExtResource("5_do635")
+text = " Magic "
+
+[node name="Button3" type="Button" parent="Options/PlayerOptions" unique_id=1149440453]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme = ExtResource("5_do635")
+text = " Defend "
+
+[node name="Button4" type="Button" parent="Options/PlayerOptions" unique_id=1594010268]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Button")
+theme = ExtResource("5_do635")
+text = " Item "
+
+[node name="MenuCursor" parent="." unique_id=807889980 instance=ExtResource("8_bjo3u")]
+layout_mode = 0
+
+[connection signal="button_focused" from="Options/PlayerOptions" to="." method="_on_player_options_button_focused"]
+[connection signal="button_pressed" from="Options/PlayerOptions" to="." method="_on_player_options_button_pressed"]

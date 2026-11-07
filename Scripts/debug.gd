@@ -1,5 +1,5 @@
 extends Node
-
+const PRINT_CURRENT_FOCUS: bool = false
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	var inputeventkey: InputEventKey = event
