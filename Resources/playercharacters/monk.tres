@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://crw2brq17wmho"]
+
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/player_data.gd" id="1_mcd53"]
+[ext_resource type="Texture2D" uid="uid://dyal57ah85xwg" path="res://Assets/players/Monk.png" id="2_k4d8l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhb48"]
+atlas = ExtResource("2_k4d8l")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_mcd53")
+name = "Monk"
+texture = SubResource("AtlasTexture_xhb48")
+max_health = 20
+damage = 4
+metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

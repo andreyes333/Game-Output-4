@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://b2ghnoysc5w6n"]
+
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/player_data.gd" id="1_0xpg0"]
+[ext_resource type="Texture2D" uid="uid://65gcrtqmb10c" path="res://Assets/players/Gladiator.png" id="2_3m0c3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rw16"]
+atlas = ExtResource("2_3m0c3")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_0xpg0")
+name = "Gladiator"
+texture = SubResource("AtlasTexture_0rw16")
+max_health = 30
+damage = 2
+metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

@@ -18,6 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 Debug="*uid://y7dor6pwvlhm"
+Entitydata="*uid://b4hu0qxku7xo"
 
 [display]
 

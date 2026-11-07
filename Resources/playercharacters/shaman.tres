@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://cwdvmrq3oj8d8"]
+
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/player_data.gd" id="1_s5pbc"]
+[ext_resource type="Texture2D" uid="uid://cf3n5rdkga6fb" path="res://Assets/players/Shaman.png" id="2_dvbf1"]
+
+[resource]
+script = ExtResource("1_s5pbc")
+name = "Shaman"
+texture = ExtResource("2_dvbf1")
+max_health = 15
+damage = 6
+metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

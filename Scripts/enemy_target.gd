@@ -1,14 +1,27 @@
 class_name enemy_target extends TextureButton
 
+var data : enemy_data
 var hp_max: int = 10
 var hp: int = hp_max
 
 @onready var _hit: Timer = $Hit
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
+@onready var _health_bar: ProgressBar = $HealthBar
 
 func _ready() -> void:
 	_animation_player.play("RESET")
 	set_process(false)
+
+func setup_enemy(enemy: enemy_data) -> void:
+	data = enemy
+	hp_max = enemy.max_health
+	hp = hp_max
+		
+	texture_normal = enemy.texture
+	tooltip_text = enemy.name
+	
+	if _health_bar and _health_bar.has_method("init_health"):
+		_health_bar.init_health(hp_max)
 
 #serves as the hit effect
 func _process(_delta:float) -> void:
