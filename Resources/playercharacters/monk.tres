@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_mcd53"]
 [ext_resource type="Texture2D" uid="uid://dyal57ah85xwg" path="res://Assets/players/Monk.png" id="2_k4d8l"]
 [ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
-[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
-[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://dj65dglmc838x" path="res://Resources/moves/counter.tres" id="11_counter"]
+[ext_resource type="Resource" uid="uid://ce6u7x32hgyxp" path="res://Resources/moves/flurry.tres" id="11_flurry"]
+[ext_resource type="Resource" uid="uid://xuut4jqkuxn0" path="res://Resources/moves/jab.tres" id="11_jab"]
+[ext_resource type="Resource" uid="uid://57iseafx7up8" path="res://Resources/moves/meditate.tres" id="11_meditate"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xhb48"]
 atlas = ExtResource("2_k4d8l")
@@ -17,5 +19,5 @@ texture = SubResource("AtlasTexture_xhb48")
 max_health = 20
 damage = 3
 speed = 7
-moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard")])
+moves = Array[ExtResource("10_move")]([ExtResource("11_flurry"), ExtResource("11_jab"), ExtResource("11_meditate"), ExtResource("11_counter")])
 metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

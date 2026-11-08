@@ -7,5 +7,6 @@ script = ExtResource("1_move")
 name = "Mend"
 kind = 1
 target = 3
-power = 5
+power = 7
+rand_priority = 3
 metadata/_custom_type_script = "uid://dkw4mjxumetlp"

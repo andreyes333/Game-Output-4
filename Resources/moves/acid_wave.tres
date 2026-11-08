@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="move_data" format=3 uid="uid://dny4rwilbtbid"]
+[gd_resource type="Resource" script_class="move_data" format=3 uid="uid://cefivmaa20op"]
 
 [ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="1_move"]
 
 [resource]
 script = ExtResource("1_move")
-name = "Strike"
-power = 4
+name = "Acid Wave"
+target = 1
+power = 2
+rand_priority = 6
 metadata/_custom_type_script = "uid://dkw4mjxumetlp"

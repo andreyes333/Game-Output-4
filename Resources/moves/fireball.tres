@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="move_data" format=3 uid="uid://fyxhypr7xdyi"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="1_move"]
+
+[resource]
+script = ExtResource("1_move")
+name = "Fireball"
+metadata/_custom_type_script = "uid://dkw4mjxumetlp"

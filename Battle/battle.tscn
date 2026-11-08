@@ -17,6 +17,8 @@
 [ext_resource type="Resource" uid="uid://b2ghnoysc5w6n" path="res://Resources/playercharacters/gladiator.tres" id="11_glad"]
 [ext_resource type="Resource" uid="uid://crw2brq17wmho" path="res://Resources/playercharacters/monk.tres" id="12_monk"]
 [ext_resource type="Resource" uid="uid://cwdvmrq3oj8d8" path="res://Resources/playercharacters/shaman.tres" id="13_sham"]
+[ext_resource type="Script" uid="uid://dqy8yqnxd83l1" path="res://Scripts/battle_log.gd" id="20_log"]
+[ext_resource type="PackedScene" uid="uid://tqjrlyjdqi0a" path="res://Battle/result_screen.tscn" id="21_result"]
 
 [node name="Battle" type="Control" unique_id=1206029571]
 layout_mode = 3
@@ -173,9 +175,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Player"
 
-[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=1791203935]
+[node name="HP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=1791203935]
 layout_mode = 2
-text = "MP: 999"
+text = "30/30"
 
 [node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar" unique_id=383513330 instance=ExtResource("8_ihngk")]
 layout_mode = 2
@@ -187,9 +189,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Player"
 
-[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=1029206700]
+[node name="HP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=1029206700]
 layout_mode = 2
-text = "MP: 999"
+text = "30/30"
 
 [node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar2" unique_id=194928402 instance=ExtResource("8_ihngk")]
 layout_mode = 2
@@ -201,9 +203,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Player"
 
-[node name="MP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=542875002]
+[node name="HP" type="Label" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=542875002]
 layout_mode = 2
-text = "MP: 999"
+text = "30/30"
 
 [node name="Health" parent="GUIMargin/BottomMenu/Players/MarginContainer/VBoxContainer/PlayerInfoBar3" unique_id=210034506 instance=ExtResource("8_ihngk")]
 layout_mode = 2
@@ -269,7 +271,35 @@ focus_neighbor_bottom = NodePath("../Button")
 theme = ExtResource("5_do635")
 text = " Item "
 
+[node name="LogBox" parent="." unique_id=150752967 instance=ExtResource("3_o5tja")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 4.0
+offset_right = 264.0
+offset_bottom = 34.0
+
+[node name="BattleLog" type="Label" parent="LogBox" unique_id=1085440587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = -6.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_do635")
+theme_override_constants/line_spacing = 0
+vertical_alignment = 1
+script = ExtResource("20_log")
+
+[node name="ResultScreen" parent="." unique_id=1159998196 instance=ExtResource("21_result")]
+z_index = 2
+layout_mode = 1
+
 [node name="MenuCursor" parent="." unique_id=807889980 instance=ExtResource("8_bjo3u")]
+z_index = 2
 layout_mode = 0
 
 [connection signal="button_focused" from="Options/PlayerOptions" to="." method="_on_player_options_button_focused"]

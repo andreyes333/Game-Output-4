@@ -1,6 +1,9 @@
 class_name battle_actor extends TextureButton
 
 signal died(actor: battle_actor)
+signal hp_changed(actor: battle_actor)
+
+const CHARGE_TINT = Color(1.0, 0.85, 0.4)
 
 @export var is_player : bool = false
 
@@ -8,13 +11,18 @@ var data : actor_data
 var hp_max: int = 10
 var hp: int = hp_max
 var guarding: bool = false
+var reflect: float = 0.0
+var damage_bonus: int = 0
+var charge_move: move_data = null
+var charge_target = null
+var charge_left: int = 0
 
-@onready var _hit: Timer = $Hit
-@onready var _animation_player: AnimationPlayer = $AnimationPlayer
-@onready var _health_bar: ProgressBar = $HealthBar
+@onready var hit_timer: Timer = $Hit
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var health_bar: ProgressBar = $HealthBar
 
 func _ready() -> void:
-	_animation_player.play("RESET")
+	animation_player.play("RESET")
 	set_process(false)
 
 func setup(actor: actor_data) -> void:
@@ -23,28 +31,44 @@ func setup(actor: actor_data) -> void:
 	hp = hp_max
 	texture_normal = actor.texture
 	tooltip_text = actor.name
-	_health_bar.init_health(hp_max)
+	health_bar.init_health(hp_max)
 
 func is_alive() -> bool:
 	return hp > 0
+
+func is_charging() -> bool:
+	return charge_move != null
+
+func start_charge(move: move_data, target) -> void:
+	charge_move = move
+	charge_target = target
+	charge_left = move.charge_turns - 1
+	modulate = Color(CHARGE_TINT, modulate.a)
+
+func end_charge() -> void:
+	charge_move = null
+	charge_target = null
+	charge_left = 0
+	modulate = Color(Color.WHITE, modulate.a)
 
 #serves as the hit effect
 func _process(_delta:float) -> void:
 	modulate.a = randf()
 
 func _on_focus_entered() -> void:
-	_animation_player.play("highlight")
+	animation_player.play("highlight")
 
 func _on_focus_exited() -> void:
-	_animation_player.play("RESET")
+	animation_player.play("RESET")
 
 func heal_hurt(value: int) -> void:
-	hp = clamp(hp + value, 0, hp_max)
-	_health_bar.health = hp
+	hp = clampi(hp + value, 0, hp_max)
+	health_bar.health = hp
+	hp_changed.emit(self)
 	if value < 0:
 		set_process(true)
-		_hit.start()
-		await _hit.timeout
+		hit_timer.start()
+		await hit_timer.timeout
 		set_process(false)
 		modulate.a = 1.0
 	if hp == 0:

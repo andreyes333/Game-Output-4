@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_42tav"]
 [ext_resource type="Texture2D" uid="uid://c6wlioynsoteb" path="res://Assets/enemies/Slime.png" id="2_6w4tk"]
-[ext_resource type="Resource" uid="uid://dhakd8dcddbd1" path="res://Resources/moves/mend.tres" id="4_d5pfj"]
 [ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
-[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
-[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://cefivmaa20op" path="res://Resources/moves/acid_wave.tres" id="11_acid_wave"]
+[ext_resource type="Resource" uid="uid://c3vugc464u3mt" path="res://Resources/moves/harden.tres" id="11_harden"]
+[ext_resource type="Resource" uid="uid://b4fgm6741ason" path="res://Resources/moves/ooze.tres" id="11_ooze"]
+[ext_resource type="Resource" uid="uid://b6bpfhwswvbmw" path="res://Resources/moves/tackle.tres" id="11_tackle"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7e7ut"]
 atlas = ExtResource("2_6w4tk")
@@ -15,8 +16,8 @@ region = Rect2(0, 0, 16, 16)
 script = ExtResource("1_42tav")
 name = "Slime"
 texture = SubResource("AtlasTexture_7e7ut")
-max_health = 20
+max_health = 40
 damage = 3
 speed = 2
-moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard"), ExtResource("4_d5pfj")])
+moves = Array[ExtResource("10_move")]([ExtResource("11_tackle"), ExtResource("11_ooze"), ExtResource("11_harden"), ExtResource("11_acid_wave")])
 metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

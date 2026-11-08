@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="move_data" format=3 uid="uid://caxcrtyqeguv6"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="1_move"]
+
+[resource]
+script = ExtResource("1_move")
+name = "Bite"
+power = 4
+rand_priority = 10
+metadata/_custom_type_script = "uid://dkw4mjxumetlp"
