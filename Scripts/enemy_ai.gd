@@ -6,9 +6,9 @@ static func choose(actor: battle_actor, allies: Array[battle_actor], foes: Array
 	var move: move_data = actor.data.moves[0]
 	var target: battle_actor = null
 	if move.target == move_data.Target.ONE_ENEMY:
-		target = foes[0]
+		target = foes.pick_random()
 	elif move.target == move_data.Target.ONE_ALLY:
-		target = allies[0]
+		target = allies[0] #not sure if this needs to be random too for enemies if they can use other moves like defend?
 	elif move.target == move_data.Target.SELF:
 		target = actor
 	return battle_action.new(actor, move, target)

@@ -2,10 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_tfdvi"]
 [ext_resource type="Texture2D" uid="uid://cgkcb6eqenud5" path="res://Assets/enemies/Snake.png" id="2_drpdf"]
-
 [ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
-[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
 [ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
+[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuk80"]
 atlas = ExtResource("2_drpdf")
