@@ -8,4 +8,5 @@ name = "Guard"
 kind = 2
 target = 2
 power = 0
+priority = 4
 metadata/_custom_type_script = "uid://dkw4mjxumetlp"

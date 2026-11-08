@@ -7,6 +7,7 @@ signal died(actor: battle_actor)
 var data : actor_data
 var hp_max: int = 10
 var hp: int = hp_max
+var guarding: bool = false
 
 @onready var _hit: Timer = $Hit
 @onready var _animation_player: AnimationPlayer = $AnimationPlayer
