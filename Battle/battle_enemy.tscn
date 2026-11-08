@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c6wlioynsoteb" path="res://Assets/enemies/Slime.png" id="1_xf5mp"]
 [ext_resource type="Script" uid="uid://dxrq8qrgs61v7" path="res://Scripts/enemy_target.gd" id="2_xf5mp"]
+[ext_resource type="PackedScene" uid="uid://d3h6gh2jq840w" path="res://Battle/health.tscn" id="3_ge164"]
+[ext_resource type="Theme" uid="uid://ccvqb1g3n4kkj" path="res://Assets/Themes/font_size.tres" id="4_s1nt1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcrfk"]
 atlas = ExtResource("1_xf5mp")
@@ -51,6 +53,19 @@ offset_bottom = 32.0
 texture_normal = SubResource("AtlasTexture_rcrfk")
 stretch_mode = 0
 script = ExtResource("2_xf5mp")
+
+[node name="HealthBar" parent="." unique_id=383513330 instance=ExtResource("3_ge164")]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("4_s1nt1")
 
 [node name="Hit" type="Timer" parent="." unique_id=1160252699]
 

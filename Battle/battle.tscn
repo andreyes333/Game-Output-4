@@ -50,23 +50,23 @@ script = ExtResource("4_0lqow")
 
 [node name="BattleEnemy" parent="Enemies" unique_id=938350905 instance=ExtResource("5_0lqow")]
 layout_mode = 0
-offset_left = 158.0
+offset_left = 170.0
 offset_top = 54.0
-offset_right = 190.0
+offset_right = 202.0
 offset_bottom = 86.0
 
 [node name="BattleEnemy2" parent="Enemies" unique_id=1271045334 instance=ExtResource("5_0lqow")]
 layout_mode = 0
-offset_left = 191.0
+offset_left = 215.0
 offset_top = 63.0
-offset_right = 223.0
+offset_right = 247.0
 offset_bottom = 95.0
 
 [node name="BattleEnemy3" parent="Enemies" unique_id=299256168 instance=ExtResource("5_0lqow")]
 layout_mode = 0
-offset_left = 224.0
+offset_left = 260.0
 offset_top = 73.0
-offset_right = 256.0
+offset_right = 292.0
 offset_bottom = 105.0
 
 [node name="PlayerCharacters" type="Control" parent="." unique_id=1121092959]
@@ -80,24 +80,24 @@ script = ExtResource("4_0lqow")
 
 [node name="BattlePlayer" parent="PlayerCharacters" unique_id=864587999 instance=ExtResource("4_ploow")]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 69.0
-offset_right = 85.0
-offset_bottom = 101.0
+offset_left = 43.0
+offset_top = 67.0
+offset_right = 75.0
+offset_bottom = 99.0
 
 [node name="BattlePlayer2" parent="PlayerCharacters" unique_id=342789245 instance=ExtResource("4_ploow")]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 84.0
-offset_right = 123.0
-offset_bottom = 116.0
+offset_left = 84.0
+offset_top = 80.0
+offset_right = 117.0
+offset_bottom = 112.0
 
 [node name="BattlePlayer3" parent="PlayerCharacters" unique_id=412769017 instance=ExtResource("4_ploow")]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 95.0
-offset_right = 161.0
-offset_bottom = 127.0
+offset_left = 127.0
+offset_top = 94.0
+offset_right = 160.0
+offset_bottom = 126.0
 
 [node name="GUIMargin" type="MarginContainer" parent="." unique_id=1142262946]
 layout_mode = 1
