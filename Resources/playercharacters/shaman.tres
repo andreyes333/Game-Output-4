@@ -1,12 +1,23 @@
-[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://cwdvmrq3oj8d8"]
+[gd_resource type="Resource" script_class="actor_data" format=3 uid="uid://cwdvmrq3oj8d8"]
 
-[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/player_data.gd" id="1_s5pbc"]
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_s5pbc"]
 [ext_resource type="Texture2D" uid="uid://cf3n5rdkga6fb" path="res://Assets/players/Shaman.png" id="2_dvbf1"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
+[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
+[ext_resource type="Resource" uid="uid://dhakd8dcddbd1" path="res://Resources/moves/mend.tres" id="11_mend"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74i68"]
+atlas = ExtResource("2_dvbf1")
+region = Rect2(0, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_s5pbc")
 name = "Shaman"
-texture = ExtResource("2_dvbf1")
+texture = SubResource("AtlasTexture_74i68")
 max_health = 15
+speed = 4
 damage = 6
+moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard"), ExtResource("11_mend")])
 metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

@@ -12,23 +12,22 @@ var state: States = States.OPTIONS
 @onready var _enemies_target: SubMenu = $Enemies
 @onready var _player_target: SubMenu = $PlayerCharacters
 
-@onready var battle_enemy_1: enemy_target = $Enemies/BattleEnemy
-@onready var battle_enemy_2: enemy_target = $Enemies/BattleEnemy2
-@onready var battle_enemy_3: enemy_target = $Enemies/BattleEnemy3
-@export var enemy_data1: enemy_data
-@export var enemy_data2: enemy_data
-@export var enemy_data3: enemy_data
+@export var player_party: Array[actor_data]
+@export var enemy_party: Array[actor_data]
 
 func _ready() -> void:
 	_player_options.button_focus(0)
 	_enemies_target.button_pressed.connect(_on_enemies_button_pressed)
+	_setup_party(_player_target, player_party)
+	_setup_party(_enemies_target, enemy_party)
 
-	if enemy_data1:
-		battle_enemy_1.setup_enemy(enemy_data1)
-	if enemy_data2:
-		battle_enemy_2.setup_enemy(enemy_data2)
-	if enemy_data3:
-		battle_enemy_3.setup_enemy(enemy_data3)
+func _setup_party(container: Node, party: Array[actor_data]) -> void:
+	var actors: Array = container.get_children()
+	for i in actors.size():
+		if i < party.size() and party[i]:
+			actors[i].setup(party[i])
+		else:
+			actors[i].queue_free()
 
 func add_event(actor: Object, type: int, target: Object) -> void:
 	pass

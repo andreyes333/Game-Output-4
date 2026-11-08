@@ -13,6 +13,10 @@
 [ext_resource type="Resource" uid="uid://cx50n8ja6lx06" path="res://Resources/enemies/snake.tres" id="5_iurou"]
 [ext_resource type="PackedScene" uid="uid://78ekns46m20e" path="res://Battle/menu_cursor.tscn" id="8_bjo3u"]
 [ext_resource type="PackedScene" uid="uid://d3h6gh2jq840w" path="res://Battle/health.tscn" id="8_ihngk"]
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="10_actor"]
+[ext_resource type="Resource" uid="uid://b2ghnoysc5w6n" path="res://Resources/playercharacters/gladiator.tres" id="11_glad"]
+[ext_resource type="Resource" uid="uid://crw2brq17wmho" path="res://Resources/playercharacters/monk.tres" id="12_monk"]
+[ext_resource type="Resource" uid="uid://cwdvmrq3oj8d8" path="res://Resources/playercharacters/shaman.tres" id="13_sham"]
 
 [node name="Battle" type="Control" unique_id=1206029571]
 layout_mode = 3
@@ -23,9 +27,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5pv0p")
 script = ExtResource("2_ploow")
-enemy_data1 = ExtResource("3_rcrfk")
-enemy_data2 = ExtResource("4_4m2ey")
-enemy_data3 = ExtResource("5_iurou")
+player_party = Array[ExtResource("10_actor")]([ExtResource("11_glad"), ExtResource("12_monk"), ExtResource("13_sham")])
+enemy_party = Array[ExtResource("10_actor")]([ExtResource("3_rcrfk"), ExtResource("4_4m2ey"), ExtResource("5_iurou")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=283136207]
 layout_mode = 1

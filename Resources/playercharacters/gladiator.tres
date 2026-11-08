@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="player_data" format=3 uid="uid://b2ghnoysc5w6n"]
+[gd_resource type="Resource" script_class="actor_data" format=3 uid="uid://b2ghnoysc5w6n"]
 
-[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/player_data.gd" id="1_0xpg0"]
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_0xpg0"]
 [ext_resource type="Texture2D" uid="uid://65gcrtqmb10c" path="res://Assets/players/Gladiator.png" id="2_3m0c3"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
+[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rw16"]
 atlas = ExtResource("2_3m0c3")
@@ -12,5 +16,7 @@ script = ExtResource("1_0xpg0")
 name = "Gladiator"
 texture = SubResource("AtlasTexture_0rw16")
 max_health = 30
-damage = 2
+speed = 2
+damage = 5
+moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard")])
 metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

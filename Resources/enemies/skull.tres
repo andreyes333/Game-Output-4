@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="enemy_data" format=3 uid="uid://b2jtp0scvisxv"]
+[gd_resource type="Resource" script_class="actor_data" format=3 uid="uid://b2jtp0scvisxv"]
 
-[ext_resource type="Script" uid="uid://bsc7f6yedvvin" path="res://Scripts/enemy_data.gd" id="1_v0hiq"]
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_v0hiq"]
 [ext_resource type="Texture2D" uid="uid://b3w4qeshul20h" path="res://Assets/enemies/SpriteSheet.png" id="2_uypdp"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
+[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w5p2"]
 atlas = ExtResource("2_uypdp")
@@ -13,4 +17,6 @@ name = "Skull"
 texture = SubResource("AtlasTexture_2w5p2")
 max_health = 10
 damage = 5
-metadata/_custom_type_script = "uid://bsc7f6yedvvin"
+speed = 5
+moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard")])
+metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

@@ -1,7 +1,11 @@
-[gd_resource type="Resource" script_class="enemy_data" format=3 uid="uid://cx50n8ja6lx06"]
+[gd_resource type="Resource" script_class="actor_data" format=3 uid="uid://cx50n8ja6lx06"]
 
-[ext_resource type="Script" uid="uid://bsc7f6yedvvin" path="res://Scripts/enemy_data.gd" id="1_tfdvi"]
+[ext_resource type="Script" uid="uid://cb4fwr8o13kxr" path="res://Scripts/actor_data.gd" id="1_tfdvi"]
 [ext_resource type="Texture2D" uid="uid://cgkcb6eqenud5" path="res://Assets/enemies/Snake.png" id="2_drpdf"]
+
+[ext_resource type="Script" uid="uid://dkw4mjxumetlp" path="res://Scripts/move_data.gd" id="10_move"]
+[ext_resource type="Resource" uid="uid://dny4rwilbtbid" path="res://Resources/moves/strike.tres" id="11_strike"]
+[ext_resource type="Resource" uid="uid://el3ewkfveroy" path="res://Resources/moves/guard.tres" id="11_guard"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuk80"]
 atlas = ExtResource("2_drpdf")
@@ -13,4 +17,6 @@ name = "Snake"
 texture = SubResource("AtlasTexture_nuk80")
 max_health = 15
 damage = 4
-metadata/_custom_type_script = "uid://bsc7f6yedvvin"
+speed = 6
+moves = Array[ExtResource("10_move")]([ExtResource("11_strike"), ExtResource("11_guard")])
+metadata/_custom_type_script = "uid://cb4fwr8o13kxr"

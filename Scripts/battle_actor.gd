@@ -1,6 +1,10 @@
-class_name enemy_target extends TextureButton
+class_name battle_actor extends TextureButton
 
-var data : enemy_data
+signal died(actor: battle_actor)
+
+@export var is_player : bool = false
+
+var data : actor_data
 var hp_max: int = 10
 var hp: int = hp_max
 
@@ -12,16 +16,16 @@ func _ready() -> void:
 	_animation_player.play("RESET")
 	set_process(false)
 
-func setup_enemy(enemy: enemy_data) -> void:
-	data = enemy
-	hp_max = enemy.max_health
+func setup(actor: actor_data) -> void:
+	data = actor
+	hp_max = actor.max_health
 	hp = hp_max
-		
-	texture_normal = enemy.texture
-	tooltip_text = enemy.name
-	
-	if _health_bar and _health_bar.has_method("init_health"):
-		_health_bar.init_health(hp_max)
+	texture_normal = actor.texture
+	tooltip_text = actor.name
+	_health_bar.init_health(hp_max)
+
+func is_alive() -> bool:
+	return hp > 0
 
 #serves as the hit effect
 func _process(_delta:float) -> void:
@@ -32,13 +36,16 @@ func _on_focus_entered() -> void:
 
 func _on_focus_exited() -> void:
 	_animation_player.play("RESET")
-	
+
 func heal_hurt(value: int) -> void:
 	hp = clamp(hp + value, 0, hp_max)
+	_health_bar.health = hp
 	if value < 0:
 		set_process(true)
 		_hit.start()
 		await _hit.timeout
 		set_process(false)
 		modulate.a = 1.0
-	
+	if hp == 0:
+		died.emit(self)
+		queue_free()
