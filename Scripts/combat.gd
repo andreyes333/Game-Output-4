@@ -3,8 +3,18 @@ class_name combat extends RefCounted
 const GUARD_MULTIPLIER := 0.5
 
 static func roll_damage(attacker: battle_actor, target: battle_actor, move: move_data) -> Dictionary:
-	attacker.data.damage += randi_range(-4, 4) #determines high rolls or low rolls for damage
 	var amount := float(move.power + attacker.data.damage)
+	var crit_check = null
+	var critmult = 1.5
+	var crit_chance = randf_range(0, 1)
+	
+	if crit_chance <= 0.50:
+		crit_check = true
+		amount *= critmult
+	else:
+		crit_check = false
+	
+	amount += randi_range(-2, 2) #determines damage high rolls or low rolls
 	if target.guarding:
 		amount *= GUARD_MULTIPLIER
-	return {"amount": maxi(1, roundi(amount)), "crit": false}
+	return {"amount": maxi(1, roundi(amount)), "crit": crit_check}
