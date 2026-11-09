@@ -66,6 +66,20 @@ offset_bottom = 8.0
 grow_vertical = 0
 mouse_filter = 2
 theme = ExtResource("4_s1nt1")
+show_percentage = false
+
+[node name="HP" type="Label" parent="HealthBar" unique_id=1406703000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 6
+text = "20/20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Hit" type="Timer" parent="." unique_id=1160252699]
 wait_time = 0.6

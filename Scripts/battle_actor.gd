@@ -20,6 +20,7 @@ var charge_left: int = 0
 @onready var hit_timer: Timer = $Hit
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var health_bar: ProgressBar = get_node_or_null("HealthBar")
+@onready var hp_label: Label = get_node_or_null("HealthBar/HP")
 
 func _ready() -> void:
 	animation_player.play("RESET")
@@ -33,6 +34,11 @@ func setup(actor: actor_data) -> void:
 	tooltip_text = actor.name
 	if health_bar:
 		health_bar.init_health(hp_max)
+	update_hp_label()
+
+func update_hp_label() -> void:
+	if hp_label:
+		hp_label.text = "%d/%d" % [hp, hp_max]
 
 func is_alive() -> bool:
 	return hp > 0
@@ -66,6 +72,7 @@ func heal_hurt(value: int) -> void:
 	hp = clampi(hp + value, 0, hp_max)
 	if health_bar:
 		health_bar.health = hp
+	update_hp_label()
 	hp_changed.emit(self)
 	if value < 0:
 		set_process(true)
