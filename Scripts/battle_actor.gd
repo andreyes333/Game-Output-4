@@ -19,7 +19,7 @@ var charge_left: int = 0
 
 @onready var hit_timer: Timer = $Hit
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var health_bar: ProgressBar = $HealthBar
+@onready var health_bar: ProgressBar = get_node_or_null("HealthBar")
 
 func _ready() -> void:
 	animation_player.play("RESET")
@@ -31,7 +31,8 @@ func setup(actor: actor_data) -> void:
 	hp = hp_max
 	texture_normal = actor.texture
 	tooltip_text = actor.name
-	health_bar.init_health(hp_max)
+	if health_bar:
+		health_bar.init_health(hp_max)
 
 func is_alive() -> bool:
 	return hp > 0
@@ -63,7 +64,8 @@ func _on_focus_exited() -> void:
 
 func heal_hurt(value: int) -> void:
 	hp = clampi(hp + value, 0, hp_max)
-	health_bar.health = hp
+	if health_bar:
+		health_bar.health = hp
 	hp_changed.emit(self)
 	if value < 0:
 		set_process(true)
